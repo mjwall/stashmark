@@ -2,6 +2,10 @@ require 'rake/clean'
 require 'rubygems'
 require 'rake/gempackagetask'
 require 'rake/rdoctask'
+require 'rspec/core/rake_task'
+
+desc 'Default: run specs.'
+task :default => :spec
 
 Rake::RDocTask.new do |rd|
   rd.main = "README.rdoc"
@@ -14,10 +18,10 @@ spec = eval(File.read('stashmark.gemspec'))
 Rake::GemPackageTask.new(spec) do |pkg|
 end
 
-require 'rake/testtask'
-Rake::TestTask.new do |t|
-  t.libs << "test"
-  t.test_files = FileList['test/tc_*.rb']
+desc "Run all specs"
+RSpec::Core::RakeTask.new do |t|
+  t.pattern = "./spec/**/*_spec.rb" # don't need this, it's default.
+  # Put spec opts in a file named .rspec in root
 end
 
 desc "Open an irb session preloaded with this library"
