@@ -1,6 +1,19 @@
 = stashmark
 
-Describe your project here
+Is intended to be a personal bookmark manager.  For me, this will fill a void
+that del.icio.us left.
+
+After viewing Rick Olson's "Git: the stupid NOSQL database" presentation from
+2010
+(http://confreaks.net/videos/443-rubyconf2010-git-the-stupid-nosql-database?player=flash),
+I decided to try and use git.  Alot of this work will be based on madrox
+(https://github.com/technoweenie/madrox) and ideas from memory
+(https://github.com/dm3/memory).  
+
+The git persistance is handled by grit (https://github.com/mojombo/grit)
+
+I really need this app so I can get rid of emails with links I sent to myself.
+Here's hoping for inbox zero again.
+
 
 :include:stashmark.rdoc
-
