@@ -1,0 +1,8 @@
+- repo functions, may with ~/.stashmark config
+- module for bookmark, with tags
+- add bookmark
+- list all bookmarks
+- search bookmarks
+- search bookmarks by tag
+- open after search
+- generate gh_pages branch
