@@ -1,0 +1,6 @@
+= stashmark
+
+Describe your project here
+
+:include:stashmark.rdoc
+

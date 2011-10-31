@@ -1,24 +1,23 @@
-# -*- encoding: utf-8 -*-
-$:.push File.expand_path("../lib", __FILE__)
-require "stashmark/version"
-
-Gem::Specification.new do |s|
-  s.name        = "stashmark"
-  s.version     = Stashmark::VERSION
-  s.authors     = ["Michael Wall"]
-  s.email       = ["mjwall@gmail.com"]
-  s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
-
-  s.rubyforge_project = "stashmark"
-
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
-  s.require_paths = ["lib"]
-
-  # specify any dependencies here; for example:
-  # s.add_development_dependency "rspec"
-  # s.add_runtime_dependency "rest-client"
+# Ensure we require the local version and not one we might have installed already
+require File.join([File.dirname(__FILE__),'lib','stashmark','version.rb'])
+spec = Gem::Specification.new do |s| 
+  s.name = 'stashmark'
+  s.version = Stashmark::VERSION
+  s.author = 'Michael Wall'
+  s.email = 'mjwall@gmail.com'
+  s.homepage = 'https://github.com/mjwall/stashmark'
+  s.platform = Gem::Platform::RUBY
+  s.summary = 'A personal bookmark manager'
+# Add your other files here if you make them
+  s.files = %w(
+bin/stashmark
+  )
+  s.require_paths << 'lib'
+  s.has_rdoc = true
+  s.extra_rdoc_files = ['README.rdoc','stashmark.rdoc']
+  s.rdoc_options << '--title' << 'stashmark' << '--main' << 'README.rdoc' << '-ri'
+  s.bindir = 'bin'
+  s.executables << 'stashmark'
+  s.add_development_dependency('rake')
+  s.add_development_dependency('rdoc')
 end
