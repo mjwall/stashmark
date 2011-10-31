@@ -13,7 +13,7 @@ end
 $: << File.expand_path(File.dirname(File.realpath(__FILE__)) + '/../lib')
 require 'rubygems'
 require 'gli'
-require 'stashmark/version'
+require 'stashmark'
 
 include GLI
 
@@ -48,6 +48,17 @@ on_error do |exception|
   # Error logic here
   # return false to skip default error handling
   true
+end
+
+desc 'Describe foo here'
+arg_name 'Describe arguments to foo here'
+command :foo do |c|
+  c.desc 'Describe a switch to foo'
+  c.desc 'Describe a flag to foo'
+  c.action do
+    Stashmark.hey
+    puts "Hi Mike"
+  end
 end
 
 exit GLI.run(ARGV)
